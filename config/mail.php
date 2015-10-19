@@ -15,7 +15,10 @@ return [
 	|
 	*/
 
-	'driver' => 'smtp',
+	'driver' => 'smtp',		// Using SMTP
+	//'driver' => 'mailgun',	// Using MailGun
+	//'driver' => 'mandrill', 	// Using Mandrill
+	//'driver' => 'log' 			// All e-mails will be written to your log files, and will not actually be sent to any of the recipients.
 
 	/*
 	|--------------------------------------------------------------------------
@@ -28,7 +31,7 @@ return [
 	|
 	*/
 
-	'host' => 'smtp.free.fr',
+	'host' => 'email.enclave.vn',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -41,7 +44,7 @@ return [
 	|
 	*/
 
-	'port' => 25,
+	'port' => '465',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -67,7 +70,7 @@ return [
 	|
 	*/
 
-	'encryption' => '',
+	'encryption' => 'SSL',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -80,7 +83,7 @@ return [
 	|
 	*/
 
-	'username' => null,
+	'username' => 'tongthikimquy@gmail.com',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,7 +96,7 @@ return [
 	|
 	*/
 
-	'password' => null,
+	'password' => 'Test#ttkq',
 
 	/*
 	|--------------------------------------------------------------------------
