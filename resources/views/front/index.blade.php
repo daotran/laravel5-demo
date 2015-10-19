@@ -5,14 +5,13 @@
 		<div class="box">
 			<div class="col-lg-12">
 				<hr>
-				<h2 class="intro-text text-center"><strong>Comitem</strong></h2>
+				<h2 class="intro-text text-center"><strong>DOI NET DU LICH BUI</strong></h2>
 				<hr>
-				<img class="img-responsive img-left" src="img/laravel-l-slant.png" alt="">
-				<p>Postremo ad id indignitatis est ventum, ut cum peregrini ob formidatam haut ita dudum alimentorum inopiam pellerentur ab urbe praecipites, sectatoribus disciplinarum liberalium inpendio paucis sine respiratione ulla extrusis, tenerentur minimarum adseclae veri, quique id simularunt ad tempus, et tria milia saltatricum ne interpellata quidem cum choris.</p>
-				<p>Quo cognito Constantius ultra mortalem modum exarsit ac nequo casu idem Gallus de futuris incertus agitare quaedam conducentia saluti suae per itinera conaretur, remoti sunt omnes.</p>
-				<p>Eminuit autem inter humilia supergressa iam impotentia fines mediocrium delictorum nefanda Clematii cuiusdam Alexandrini nobilis mors repentina; cuius socrus cum misceri sibi generum, flagrans eius amore, non impetraret, ut ferebatur, per palatii pseudothyrum introducta, oblato pretioso reginae monili id adsecuta est, ut ad Honoratum tum comitem orientis formula missa letali omnino scelere nullo contactus idem Clematius nec hiscere nec loqui permissus occideretur.</p>
-				<p>Cuius acerbitati uxor grave accesserat incentivum, germanitate Augusti turgida supra modum, quam Hannibaliano regi fratris filio antehac Constantinus iunxerat pater, Megaera quaedam mortalis, inflammatrix saevientis adsidua, humani cruoris avida nihil mitius quam maritus; qui paulatim eruditiores facti processu temporis ad nocendum per clandestinos versutosque rumigerulos conpertis leviter addere quaedam male suetos falsa et placentia sibi discentes, adfectati regni vel artium nefandarum calumnias insontibus adfligebant.</p>
-				<p>Montius nos tumore inusitato quodam et novo ut rebellis et maiestati recalcitrantes Augustae per haec quae strepit incusat iratus nimirum quod contumacem praefectum, quid rerum ordo postulat ignorare dissimulantem formidine tenus iusserim custodiri.</p>
+				<img class="img-responsive img-left" src="img/dulichbui.jpeg" alt="">
+				<p>DU LỊCH BỤI - Phiêu lưu cùng bụi đường là một website thông tin du lịch, mẹo du lịch, kỹ năng sống, thông tin lộ trình và những câu chuyện tuyệt vời của những bạn đam mê dịch chuyển. Đối tượng của chúng tôi hướng đến không chỉ là những bạn thích sự tiện nghi, yên tĩnh và thoải mái mà còn phục vụ cộng đồng các bạn thích khám phá, yêu phiêu lưu, muốn tự do trên đôi chân của mình khám phá các nền văn hóa trên thế giới.</p>
+				<p>Năm 2010, DU LỊCH BỤI (DLB) chỉ là một tờ giấy trắng, ý tưởng DLB bắt đầu hình thành khi các thành viên sáng lập vừa trở về từ Singapore sau 3 ngày lang thang ở nước bạn, đó là chuyến đi xuất ngoại đầu tiên đi bụi trong đời của họ. Chúng tôi cần một cái gì đó “tổng hợp” tất cả thông tin địa điểm du lịch để không cần phải tốn hàng giờ đồng hồ lục lọi tham khảo trong các diễn đàn phuot.com, ttvn.com hay các trang nước ngoài như lonely planet.</p>
+				<p>Nhiều cái tên được nghĩ ra, dulichbalo, dibui,… và dulichbui.vn là một sự lựa chọn hoàn hảo, một sản phẩm Tiếng Việt dành cho người Việt thích vác balo.</p>
+				<p>DU LICH BUI là một sản phẩm độc lập không trực thuộc một tổ chức nào. Nếu bạn tìm thấy chúng tôi trên internet, hãy ủng hộ chúng tôi bằng những chia sẻ bình luận, những lời khuyên hoặc những cảm xúc kỉ niệm các chuyến đi của bạn, chúng tôi rất trân trọng điều đó.</p>
 			</div>
 		</div>
 	</div>

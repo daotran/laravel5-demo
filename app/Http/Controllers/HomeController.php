@@ -23,9 +23,8 @@ class HomeController extends Controller
 	 * @param  App\Jobs\ChangeLocaleCommand $changeLocaleCommand
 	 * @return Response
 	 */
-	public function language(
-		ChangeLocale $changeLocale)
-	{
+	public function language(ChangeLocale $changeLocale) {
+		
 		$this->dispatch($changeLocale);
 
 		return redirect()->back();

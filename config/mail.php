@@ -15,10 +15,10 @@ return [
 	|
 	*/
 
-	'driver' => 'smtp',		// Using SMTP
+	'driver' => 'smtp',			// Using SMTP
 	//'driver' => 'mailgun',	// Using MailGun
 	//'driver' => 'mandrill', 	// Using Mandrill
-	//'driver' => 'log' 			// All e-mails will be written to your log files, and will not actually be sent to any of the recipients.
+	//'driver' => 'log' 		// All e-mails will be written to your log files, and will not actually be sent to any of the recipients.
 
 	/*
 	|--------------------------------------------------------------------------

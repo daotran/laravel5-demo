@@ -14,6 +14,7 @@ class ChangeLocale extends Job implements SelfHandling
      */
     public function handle()
     {
+    	// Change language in front-end
         session()->set('locale', session('locale') == 'fr' ? 'en' : 'fr');
     }
 }
