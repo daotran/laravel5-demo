@@ -54,7 +54,7 @@ function random_bytes($bytes)
         );
     }
 
-    $buf = mcrypt_create_iv($bytes, MCRYPT_DEV_URANDOM);
+    $buf = @mcrypt_create_iv($bytes, MCRYPT_DEV_URANDOM);
     if ($buf !== false) {
         if (RandomCompat_strlen($buf) === $bytes) {
             /**
@@ -67,6 +67,6 @@ function random_bytes($bytes)
      * If we reach here, PHP has failed us.
      */
     throw new Exception(
-        'PHP failed to generate random data.'
+        'Could not gather sufficient random data'
     );
 }

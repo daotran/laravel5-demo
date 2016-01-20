@@ -1,39 +1,37 @@
-<?php namespace App\Services;
+<?php
 
-class Statut  {
+namespace App\Services;
 
-	/**
-	 * Set the login user statut
-	 * 
-	 * @param  App\Models\User $user
-	 * @return void
-	 */
-	public function setLoginStatut($user)
-	{
-		session()->put('statut', $user->role->slug);
-	}
+class Statut {
 
-	/**
-	 * Set the visitor user statut
-	 * 
-	 * @return void
-	 */
-	public function setVisitorStatut()
-	{
-		session()->put('statut', 'visitor');
-	}
+    /**
+     * Set the login user statut
+     * 
+     * @param  App\Models\User $user
+     * @return void
+     */
+    public function setLoginStatut($user) {
+        session()->put('statut', $user->role->slug);
+    }
 
-	/**
-	 * Set the statut
-	 * 
-	 * @return void
-	 */
-	public function setStatut()
-	{
-		if(!session()->has('statut')) 
-		{
-			session()->put('statut', auth()->check() ?  auth()->user()->role->slug : 'visitor');
-		}
-	}
+    /**
+     * Set the visitor user statut
+     * 
+     * @return void
+     */
+    public function setVisitorStatut() {
+        session()->put('statut', 'visitor');
+    }
+
+    /**
+     * Set the statut
+     * 
+     * @return void
+     */
+    public function setStatut() {
+        if (!session()->has('statut')) {
+            session()->put('statut', auth()->check() ? auth()->user()->role->slug : 'visitor');
+        }
+    }
 
 }

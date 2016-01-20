@@ -19,7 +19,7 @@ Update Composer :
 
 The next required step is to add the service provider to config/app.php :
 ```
-    Bestmomo\Filemanager\ScafoldServiceProvider::class,
+    Bestmomo\Filemanager\FilemanagerServiceProvider::class,
 ```
 
 ### Publish ###
@@ -52,8 +52,27 @@ A folder with user{id} name will be created in filemanager/userfiles folder.
 
 ### Integration ###
 
-You can now integrate Filemanager with any editor like CKEditor.
+You can now integrate Filemanager with any editor.
 
+Simple example integration with CKEditor :
+```
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>CKEditor</title>
+        <script src="//cdn.ckeditor.com/4.5.3/standard/ckeditor.js"></script>
+    </head>
+    <body>
+        <textarea name="editor"></textarea>
+        <script>
+            CKEDITOR.replace( 'editor', {
+                filebrowserBrowseUrl: '{!! url('filemanager/index.html') !!}'
+            });
+        </script>
+    </body>
+</html>
+```
 
 
 

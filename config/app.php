@@ -130,6 +130,13 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Services\Html\HtmlServiceProvider::class,
         Bestmomo\Filemanager\FilemanagerServiceProvider::class,
+        
+        /* 
+         * Added by dao.tran
+         * OAuth authentication
+         */
+        LucaDegasperi\OAuth2Server\Storage\FluentStorageServiceProvider::class,
+        LucaDegasperi\OAuth2Server\OAuth2ServerServiceProvider::class,
     ],
     /*
       |--------------------------------------------------------------------------
@@ -177,5 +184,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
         'HTML' => Collective\Html\HtmlFacade::class,
+        
+        /* added by dao.tran for OAuth2 authentication */
+        'Authorizer' => LucaDegasperi\OAuth2Server\Facades\Authorizer::class,
     ],
 ];
