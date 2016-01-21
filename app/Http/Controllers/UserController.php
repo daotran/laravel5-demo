@@ -33,8 +33,7 @@ class UserController extends Controller {
      * @param  App\Repositories\RoleRepository $role_gestion
      * @return void
      */
-    public function __construct(
-    UserRepository $user_gestion, RoleRepository $role_gestion) {
+    public function __construct(UserRepository $user_gestion, RoleRepository $role_gestion) {
         $this->user_gestion = $user_gestion;
         $this->role_gestion = $role_gestion;
 
@@ -100,8 +99,7 @@ class UserController extends Controller {
      *
      * @return Response
      */
-    public function store(
-    UserCreateRequest $request) {
+    public function store(UserCreateRequest $request) {
         $this->user_gestion->store($request->all());
 
         return redirect('user')->with('ok', trans('back/users.created'));
@@ -189,7 +187,7 @@ class UserController extends Controller {
 
         return redirect('user/roles')->with('ok', trans('back/roles.ok'));
     }
-    
+
     public function dataRefresh() {
         return "fff";
     }

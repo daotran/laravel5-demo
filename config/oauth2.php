@@ -26,10 +26,40 @@ return [
     | http://git.io/vJLAv
     |
     */
-
+    
+    // Implement OAuth2 Authorization Server
     'grant_types' => [
-
-    ],
+        
+        // Client Credentials Grant
+        // Note: This grant is suitable and used for machine-to-machine authentication, 
+        // for example for use in a cron job which is performing maintenance tasks over an API.
+        'client_credentials' => [
+            'class' => '\League\OAuth2\Server\Grant\ClientCredentialsGrant',
+            'access_token_ttl' => 3600
+        ],
+        
+        // Auth Code Grant
+        'authorization_code' => [
+            'class' => '\League\OAuth2\Server\Grant\AuthCodeGrant',
+            'access_token_ttl' => 3600,
+            'auth_token_ttl'   => 3600
+        ],
+        // Password Grant
+        // Note: Ask the user for their username and password to authenticate every user come to the site
+        // This grant is suitable for trusted clients such as a service’s own mobile client (mobile devices)
+        'password' => [
+            'class' => 'League\OAuth2\Server\Grant\PasswordGrant',
+            'callback' => '\App\Http\Middleware\PasswordGrantVerifier@verify',
+            'access_token_ttl' => 604800
+        ],
+        // Refresh Token Grant
+        // Refresh token to retrieve a new access token with the same permissions as the old one
+        'refresh_token' => [
+            'class' => '\League\OAuth2\Server\Grant\RefreshTokenGrant',
+            'access_token_ttl' => 3600,
+            'refresh_token_ttl' => 36000
+        ]        
+    ],    
 
     /*
     |--------------------------------------------------------------------------

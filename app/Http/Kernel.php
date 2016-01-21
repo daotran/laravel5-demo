@@ -44,7 +44,6 @@ class Kernel extends HttpKernel {
         'admin' => \App\Http\Middleware\IsAdmin::class,
         'redac' => \App\Http\Middleware\IsRedactor::class,
         'ajax' => \App\Http\Middleware\IsAjax::class,
-        'csrf' => \App\Http\Middleware\VerifyCsrfToken::class,
         
         /*
          * Added by dao.tran for OAuth2 authentication 
@@ -54,6 +53,7 @@ class Kernel extends HttpKernel {
         'oauth-user' => \LucaDegasperi\OAuth2Server\Middleware\OAuthUserOwnerMiddleware::class,
         'oauth-client' => \LucaDegasperi\OAuth2Server\Middleware\OAuthClientOwnerMiddleware::class,
         'check-authorization-params' => \LucaDegasperi\OAuth2Server\Middleware\CheckAuthCodeRequestMiddleware::class,
+        'csrf' => \App\Http\Middleware\VerifyCsrfToken::class,
         
         /* added by dao.tran for custom authentication, display Authentication header at browsers */
         'auth.token' => \App\Http\Middleware\TokenAuthMiddleware::class
