@@ -114,20 +114,25 @@ Route::group(['prefix' => 'api/v1', 'before' => 'oauth'], function () {
     // access_token=IBzXJ9wXQAdQH1UiCjxK1A9JPIieTtEMbqerjmdF
     Route::post('posts/create', 'Api\v1\PostController@create');
     
+    // get post info of a user_id
+    // config form-data/x-www-form-urlencode
+    // access_token=IBzXJ9wXQAdQH1UiCjxK1A9JPIieTtEMbqerjmdF
+    // API: http://localhost/laravel5-demo/public/api/v1/posts/getPostInfo?user_id=16&title=Post 9
+    Route::post('posts/getPostInfo', 'Api\v1\PostController@getPostInfo');
+    
 });
 
 
-//
-//Route::get('admin/users', function(){
-//    $data = Input::get('data');
-//});
+
+
+
 Route::get('admin/users' , array('before' => 'ajax:data', 'as' => 'admin.users', 'uses' => 'UserController@dataRefresh'));
 Route::filter('ajax', function($route, $request, $param){
 
     // This will give query string 'refresh'
-    // if you passed it as http://domain.com?data=refresh
+    // if you passed it as http://domain.com?data=refresh&test=1
     $data = $request->get($param);
-
+    
     return Response::json($data);
     // You can retrieve the $param, third argument
     // if you pass a parameter, i.e. 'refresh'

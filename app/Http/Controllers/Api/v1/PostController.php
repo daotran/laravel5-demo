@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Api\v1;
 use App\Models\User;
 use App\Models\Post;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Response;
 use LucaDegasperi\OAuth2Server\Facades\Authorizer;
 
@@ -24,6 +25,7 @@ class PostController extends Controller {
 
         $user_id = Authorizer::getResourceOwnerId(); // the token user_id
         $user = User::find($user_id); // get the user data from database
+        
         // get all posts
         //$posts = $user->posts()->get(); //OR as below
         $posts = Post::where('user_id', '=', $user->id)->get();
@@ -37,37 +39,49 @@ class PostController extends Controller {
      * @return Response
      */
     public function create() {
+
+        $result = array();
         $status = false;
-
-        $post = new Post;
+        
         $user_id = Authorizer::getResourceOwnerId(); // the token user_id
-
-        $post->title = "Post 512a";
-        $post->slug = "post-512a";
-        $post->content = "Content of Post 5";
+        
+        // get json string from the Request Body in a POST request
+        $input = Input::all(); // OR using $t = \Illuminate\Support\Facades\Request::all(); return $t;
+        
+        // store post record
+        $post = new Post;
+        $post->title = $input['title'];
+        $post->slug = $input['slug'];
+        $post->content = $input['content'];
         $post->seen = 0;
         $post->active = 1;
         $post->user_id = $user_id;
 
-        // $post->title = Request::get('url');
-        //$url->description = Request::get('description');
-        // Validation and Filtering is sorely needed!!
-        // Seriously, I'm a bad person for leaving that out.
         if ($post->save()) {
             $status = true;
         }
 
         if ($status) {
-            return Response::json(array(
-                        'success' => TRUE,
-                        'data' => $post->toArray()), 200
+            Response::json(array(
+                $result['success'] = TRUE,
+                $result['data'] = $post->toArray()), 200 // insert data successfully
             );
         } else {
-            return Response::json(array(
-                        'success' => FALSE,
-                        'message' => 'Sorry, create new post unsuccessfully!'
-            ));
+            Response::json(array(
+                $result['success'] = FALSE,
+                $result['message'] = 'Sorry, new post is created unsuccessfully!'), 409 // a duplicate data in the database
+            );
         }
+
+        return $result;
+    }
+
+    public function getPostInfo() {
+
+        $filters = Input::only('user_id', 'title');
+
+        $posts = Post::query()->where($filters)->get();
+        return $posts;
     }
 
 }
