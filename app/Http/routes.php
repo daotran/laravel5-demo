@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 // Home Page
 Route::get('/', [
@@ -61,12 +61,9 @@ Route::resource('user', 'UserController');
 /* added by dao.tran */
 
 /* Article */
-// get all articles
-Route::get('articles', 'ArticleController@index');
 
-// Create a new article 
-Route::get('articles/create', 'ArticleController@create'); // get/show form for create
-Route::post('articles/store', 'ArticleController@store'); // when submit form
+// get articles's resource
+Route::resource('articles', 'ArticleController');
 
 /* ended by dao.tran */
 

@@ -69,7 +69,12 @@ class ArticleController extends Controller {
      * @return Response
      */
     public function edit($id) {
-        //
+
+        // find the article object you want to edit
+        $article = Article::findOrNew($id);
+
+        // Invoke edit page to show the article
+        return view('articles.edit', compact('article'));
     }
 
     /**
@@ -79,8 +84,15 @@ class ArticleController extends Controller {
      * @param  int  $id
      * @return Response
      */
-    public function update(Request $request, $id) {
-        //
+    public function update(ArticleRequest $request, $id) {
+
+        // retrieve article object
+        $article = Article::findOrNew($id);
+
+        // update article information that getting from form input
+        $article->update($request->all());
+
+        return redirect('articles');
     }
 
     /**
