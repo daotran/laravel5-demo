@@ -12,10 +12,10 @@
 
         <main role="main" class="container">
             @if(session()->has('ok'))
-            @include('partials/error', ['type' => 'success', 'message' => session('ok')])
+                @include('partials/error', ['type' => 'success', 'message' => session('ok')])
             @endif	
             @if(isset($info))
-            @include('partials/error', ['type' => 'info', 'message' => $info])
+                @include('partials/error', ['type' => 'info', 'message' => $info])
             @endif
             @yield('main')
         </main>

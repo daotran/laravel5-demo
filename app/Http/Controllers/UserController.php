@@ -188,8 +188,4 @@ class UserController extends Controller {
         return redirect('user/roles')->with('ok', trans('back/roles.ok'));
     }
 
-    public function dataRefresh() {
-        return "fff";
-    }
-
 }

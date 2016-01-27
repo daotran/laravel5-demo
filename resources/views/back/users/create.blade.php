@@ -2,7 +2,7 @@
 
 @section('main')
 
- <!-- Entête de page -->
+ <!-- Entete de page -->
   @include('back.partials.entete', ['title' => trans('back/users.dashboard'), 'icone' => 'user', 'fil' => link_to('user', trans('back/users.Users')) . ' / ' . trans('back/users.creation')])
 
 	<div class="col-sm-12">

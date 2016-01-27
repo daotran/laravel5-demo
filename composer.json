@@ -10,7 +10,8 @@
         "laravelcollective/html": "5.1.*",
         "bestmomo/filemanager": "1.*",
         "guzzlehttp/guzzle": "~5.0",
-        "lucadegasperi/oauth2-server-laravel": "5.0.*"
+        "lucadegasperi/oauth2-server-laravel": "5.0.*",
+        "google/apiclient": "^2.0.0@RC"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -56,4 +57,3 @@
     "minimum-stability": "dev",
     "prefer-stable": true
 }
-

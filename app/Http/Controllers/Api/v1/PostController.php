@@ -79,8 +79,10 @@ class PostController extends Controller {
     public function getPostInfo() {
 
         $filters = Input::only('user_id', 'title');
+        //$user_id = Input::get('user_id'); 
+        //$title = Input::get('title');
 
-        $posts = Post::query()->where($filters)->get();
+        $posts = Post::where($filters)->get();
         return $posts;
     }
 

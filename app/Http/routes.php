@@ -1,6 +1,6 @@
 <?php
 
-// Home
+// Home Page
 Route::get('/', [
 	'uses' => 'HomeController@index', 
 	'as' => 'home'
@@ -22,7 +22,6 @@ Route::get('medias', [
 	'as' => 'medias',
 	'middleware' => 'redac'
 ]);
-
 
 // Blog
 Route::get('blog/order', ['uses' => 'BlogController@indexOrder', 'as' => 'blog.order']);
@@ -49,7 +48,6 @@ Route::resource('contact', 'ContactController', [
 	'except' => ['show', 'edit']
 ]);
 
-
 // User
 Route::get('user/sort/{role}', 'UserController@indexSort');
 
@@ -60,6 +58,17 @@ Route::put('userseen/{user}', 'UserController@updateSeen');
 
 Route::resource('user', 'UserController');
 
+/* added by dao.tran */
+
+/* Article */
+// get all articles
+Route::get('articles', 'ArticleController@index');
+
+// Create a new article 
+Route::get('articles/create', 'ArticleController@create'); // get/show form for create
+Route::post('articles/store', 'ArticleController@store'); // when submit form
+
+/* ended by dao.tran */
 
 // Auth
 Route::controllers([

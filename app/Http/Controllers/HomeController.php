@@ -4,30 +4,28 @@ namespace App\Http\Controllers;
 
 use App\Jobs\ChangeLocale;
 
-class HomeController extends Controller
-{
+class HomeController extends Controller {
 
-	/**
-	 * Display the home page.
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-		return view('front.index');
-	}
+    /**
+     * Display the home page.
+     *
+     * @return Response
+     */
+    public function index() {
+        return view('front.index');
+    }
 
-	/**
-	 * Change language.
-	 *
-	 * @param  App\Jobs\ChangeLocaleCommand $changeLocaleCommand
-	 * @return Response
-	 */
-	public function language(ChangeLocale $changeLocale) {
-		
-		$this->dispatch($changeLocale);
+    /**
+     * Change language.
+     *
+     * @param  App\Jobs\ChangeLocaleCommand $changeLocaleCommand
+     * @return Response
+     */
+    public function language(ChangeLocale $changeLocale) {
 
-		return redirect()->back();
-	}
+        $this->dispatch($changeLocale);
+
+        return redirect()->back();
+    }
 
 }
