@@ -31,7 +31,7 @@ $apiContext->setConfig(
             'log.FileName' => __DIR__ . '/../../storage/logs/paypal.log',
             'log.LogLevel' => 'DEBUG', // or use 'FINE, INFO, ERROR or WARN' for logging in live environments
             'cache.enabled' => true, // use cache Access Tokens for multiple request uses
-        // 'http.CURLOPT_CONNECTTIMEOUT' => 30  // connection timeout
+            // 'http.CURLOPT_CONNECTTIMEOUT' => 30  // connection timeout
         )
 );
 

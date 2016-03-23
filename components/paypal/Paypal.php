@@ -2,16 +2,12 @@
 
 namespace app\components\paypal;
 
-use yii\base\Component;
-use Yii;
+use Illuminate\Support\Facades\Config;
+use PayPal\Rest\ApiContext;
+use PayPal\Auth\OAuthTokenCredential;
 
-class Paypal extends Component {
-
-    //const PAYPAL_APP_ID = "AWVh9GfpwDqPi69yDKdtQRn46R6XOvfQl3vgM96cv5WB3h7CHWpFMkzMkmiSZJWdseTzDcYTAx1ueN98";
-    //const PAYPAL_APP_SECRET = "EHvpEnid8aKEYVEIAmhlXqA1GAZMuwbwoFrC6NhiKVuSX03FGNo8xWok9jjIb5vBvLZbhWg4OKXXHKc9";
-    const PAYPAL_APP_ID = 'AQoBzeGrkzeERt8dk224bokoCpB_8dnlxMm07d8HdIXTdbuCWxQHkhPQyRHyS4aTaYScG4UnDC8CGQUZ'; // ClientID
-    const PAYPAL_APP_SECRET = 'EE0Itlb8NeeCDJ3PpMmorgC7ZkZjnRah0BHB-KoaJOWaK20s6_wkdCUiTg6Q4HjWS842KKhRWGog3Dc-'; // Client Secret
-
+class Paypal {
+    
     /**
      * Make a payment with paypal
      * @param $products array list of products
@@ -31,17 +27,12 @@ class Paypal extends Component {
         }
 
         // 1. Autoload the SDK Package. This will include all the files and classes to your autoloader
-        require __DIR__ . '/autoload.php';
+        require __DIR__ . '/../../vendor/autoload.php';
 
         // 2. Provide your Secret Key. Replace the given one with your app clientId, and Secret
-        $apiContext = new \PayPal\Rest\ApiContext(
-                new \PayPal\Auth\OAuthTokenCredential(
-                Yii::$app->params['constants']['paypal']['appId'], // ClientID
-                Yii::$app->params['constants']['paypal']['appSecret'] // ClientSecretappSecret
-                )
-        );
-
-        $apiContext->setConfig(['mode' => Yii::$app->params['constants']['paypal']['mode']]);
+        $paypal_conf = Config::get('paypal');
+        $apiContext = new ApiContext(new OAuthTokenCredential($paypal_conf['client_id'], $paypal_conf['secret']));
+        $apiContext->setConfig($paypal_conf['settings']);
 
         $payer = new \PayPal\Api\Payer();
         $payer->setPaymentMethod("paypal");
@@ -114,14 +105,9 @@ class Paypal extends Component {
             require Yii::getAlias('@app/components/paypal/autoload.php') . '';
 
             // 2. Provide your Secret Key. Replace the given one with your app clientId, and Secret
-            $apiContext = new \PayPal\Rest\ApiContext(
-                    new \PayPal\Auth\OAuthTokenCredential(
-                    Yii::$app->params['constants']['paypal']['appId'], // ClientID
-                    Yii::$app->params['constants']['paypal']['appSecret']      // ClientSecretappSecret
-                    )
-            );
-
-            $apiContext->setConfig(['mode' => Yii::$app->params['constants']['paypal']['mode']]);
+            $paypal_conf = Config::get('paypal');
+            $apiContext = new ApiContext(new OAuthTokenCredential($paypal_conf['client_id'], $paypal_conf['secret']));
+            $apiContext->setConfig($paypal_conf['settings']);
 
             $paymentId = $dataRequest['paymentId'];
             $payment = \PayPal\Api\Payment::get($paymentId, $apiContext);
@@ -190,9 +176,10 @@ class Paypal extends Component {
             curl_close($ch);
             exit;
         } else {
-            $model = new \app\models\Logs();
+            $model = new \App\Models\Log();
             $model->type = 'Paypal Notification';
-            $model->created = time();
+            $model->created_at = time();
+            $model->updated_at = time();
             $result = json_encode([]);
             if (strcmp($res, "VERIFIED") == 0) {
                 $result = json_encode($_POST);
